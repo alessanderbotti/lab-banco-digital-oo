@@ -1,3 +1,4 @@
+package com.BancoDigital;
 
 public interface IConta {
 	

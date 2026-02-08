@@ -1,4 +1,10 @@
+package com.BancoDigital;
 
+import lombok.Getter;
+import lombok.ToString;
+
+@Getter
+@ToString
 public abstract class Conta implements IConta {
 	
 	private static final int AGENCIA_PADRAO = 1;
@@ -17,30 +23,18 @@ public abstract class Conta implements IConta {
 
 	@Override
 	public void sacar(double valor) {
-		saldo -= valor;
+		this.saldo -= valor;
 	}
 
 	@Override
 	public void depositar(double valor) {
-		saldo += valor;
+		this.saldo += valor;
 	}
 
 	@Override
 	public void transferir(double valor, IConta contaDestino) {
 		this.sacar(valor);
 		contaDestino.depositar(valor);
-	}
-
-	public int getAgencia() {
-		return agencia;
-	}
-
-	public int getNumero() {
-		return numero;
-	}
-
-	public double getSaldo() {
-		return saldo;
 	}
 
 	protected void imprimirInfosComuns() {
